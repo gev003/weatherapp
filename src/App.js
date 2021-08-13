@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { Component } from "react";
+import "./App.css";
+import React from "react";
+import HeaderForm from "./components/headerFrom";
+import BodyForm from "./components/bodyForm";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  state = {
+    body: null,
+  };
+
+  fullData = async ({ data }) => {
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${data.city},${data.country}&appid=ad119eabcbf0c41565e2ed4d89808155`
+    );
+    const result = await response.json();
+    this.setState({ body: result });
+    console.log(result);
+    // .then((stream) => stream.json())
+    // .then((result) => this.setState({ body: result }));
+  };
+
+  render() {
+    console.log(this.state);
+    return (
+      <div className="container">
+        <div className="mainPart">
+          <HeaderForm fullData={this.fullData} />
+          {this.state.body && <BodyForm fetchedData={this.state.body} />}
+        </div>
+      </div>
+    );
+  }
 }
-
-export default App;

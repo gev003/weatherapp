@@ -1,38 +1,81 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+.container {
+  background: url("./assets/blur-background-1187974.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mainPart {
+  width: 80%;
+  height: 90%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.headerForm {
+  width: 100%;
+  display: inline-block;
   text-align: center;
+  height: auto;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.headerForm > form {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+  align-items: center;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.inputs {
+  border: none;
+  border-bottom: 2px solid white;
+  outline: none;
+  color: white;
+  padding: 10px 25px;
+  background-color: transparent;
+  font-size: 14px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.inputs:focus {
+  border-bottom: 2px solid red;
+}
+.btn {
+  margin: 20px;
+  padding: 10px 30px;
+  background: green;
+  outline: none;
+  border: none;
+  color: #fff;
+  border-radius: 15px;
+  transition: 0.3s ease-in;
+  cursor: pointer;
+}
+.btn:hover {
+  background: #fff;
+  color: green;
+}
+.bodyForm {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 90%;
 }
-
-.App-link {
-  color: #61dafb;
+span {
+  font-size: calc(25px + 2vmin);
+  color: #fff;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.description {
+  font-size: calc(50px + 2vmin);
+  color: #fff;
+  margin: 50px;
+}
+.temp {
+  font-size: calc(80px + 4vmin);
 }
